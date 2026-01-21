@@ -1,5 +1,6 @@
 package com.service.user.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -21,7 +22,11 @@ public class UserService {
     }
 
     public List<User> findAll() {
-        return repository.findAll();
+        List<User> userList = null;
+        if(repository.findAll().isEmpty()) {
+        	userList = new ArrayList<>();
+        }
+    	return userList;
     }
 
     public User findById(Long id) {
